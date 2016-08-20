@@ -82,7 +82,7 @@ class TodoList extends Component {
 	          {filteredTodos.map(todo =>
 	            <TodoItem key={todo._id} todo={todo} {...actions} />
 	          )}
-            <button className="button button_remove_todo_list" onClick={() => actions.removeTodoList(todoList._id)}>Remove list</button>
+            <button className="button button_remove_todo_list" onClick={() => actions.removeTodoList(todoList._id)}>&times;</button>
 	        </ul>
 	        {this.renderFooter(completedCount)}
         </div>
