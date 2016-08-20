@@ -10,6 +10,7 @@ import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
 class MainSection extends Component {
   
   render() {
+    
     const { todoLists, actions, todos } = this.props
 
     return (
