@@ -48,7 +48,7 @@ export default function configureStore() {
     return id.toString().indexOf('todolist') === -1
   }
 
-  const pouchMiddleware = PouchMiddleware([{
+  const pouchMiddleware = PouchMiddleware([/*{
       path: '/todos',
       db,
       actions: {
@@ -57,7 +57,7 @@ export default function configureStore() {
         update: doc => store.dispatch({type: types.UPDATE_TODO, todo: doc}),
       },
       changeFilter: doc => isTodo(doc._id)
-    },
+    },*/
     {
       path: '/todoLists',
       db,
