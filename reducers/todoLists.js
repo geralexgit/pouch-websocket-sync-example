@@ -1,4 +1,4 @@
-import { ADD_TODO_LIST} from '../constants/ActionTypes'
+import { ADD_TODO_LIST, REMOVE_TODO_LIST} from '../constants/ActionTypes'
 
 const initialState = [{_id: 1},{_id: 2}]
 
@@ -10,6 +10,8 @@ export default function todoLists(state = initialState, action) {
 				...state,
 				{_id: id()}
 			]
+		case REMOVE_TODO_LIST:
+			return state.filter(item => item._id !== action.id)
 	}
 
 	return state;

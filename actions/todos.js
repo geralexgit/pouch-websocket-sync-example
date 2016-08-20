@@ -27,3 +27,7 @@ export function clearCompleted() {
 export function addTodoList() {
   return { type: types.ADD_TODO_LIST }
 }
+
+export function removeTodoList(id) {
+  return { type: types.REMOVE_TODO_LIST, id }
+}
