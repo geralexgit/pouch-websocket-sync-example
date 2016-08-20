@@ -29,6 +29,6 @@ export default function todoLists(state = initialState, action) {
 	return state;
 }
 
-const id = () => {
+function id() {
 	return 'todolist_1_' + (new Date).getTime();
 }
