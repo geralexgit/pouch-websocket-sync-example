@@ -48,7 +48,7 @@ export default function configureStore() {
     return id.toString().indexOf('todolist') === -1
   }
 
-  const pouchMiddleware = PouchMiddleware({
+  const pouchMiddleware = PouchMiddleware([{
       path: '/todos',
       db,
       actions: {
@@ -57,9 +57,7 @@ export default function configureStore() {
         update: doc => store.dispatch({type: types.UPDATE_TODO, todo: doc}),
       },
       changeFilter: (doc) => isTodo(doc._id)
-    });
-
- const pouchMiddlewareList = PouchMiddleware(
+    },
     {
       path: '/todoLists',
       db,
@@ -70,9 +68,9 @@ export default function configureStore() {
       },
       changeFilter: (doc) => isTodoList(doc._id)
     }
-  );
+    ]);
 
-  const createStoreWithMiddleware = applyMiddleware(pouchMiddleware,pouchMiddlewareList)(createStore)
+  const createStoreWithMiddleware = applyMiddleware(pouchMiddleware)(createStore)
   const store = createStoreWithMiddleware(rootReducer, initialState)
 
   if (module.hot) {
