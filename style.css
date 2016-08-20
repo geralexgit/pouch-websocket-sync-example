@@ -1,18 +1,28 @@
-.input { border: 0.1em solid #aaa; border-radius: 0.2em;
-	padding: 0.5em 1em; margin: 0.5em;
-	background: #fff;
+html, body, body * {
+  box-sizing: border-box;
+} 
+
+input, button {
+  font-size: 1em; line-height: 1;
 }
+
+.todoapp { }
+
+.todoapp h1 { }
+
+.input { border: 0.1em solid #aaa; border-radius: 0.2em;
+	padding: 0.5em 1em; margin: 0.5em; background: #fff;
+}
+
 .list_name {
-	padding-left: 35px;
+	padding-left: 2em;
 }
 
 .button {
 	border: 0.1em solid #aaa; border-radius: 0.2em;
 	padding: 0.5em 1em; margin: 0.5em;
 	background: #eee; cursor: pointer;
-	box-shadow: 0.05em 0.1em 0 rgba(0,0,0,0.1);
 }
-.button:hover { box-shadow: 0 0 0 rgba(0,0,0,0); }
 
 .button_add_todo_list { background-color: #9f5; }
 .button_remove_todo_list { background-color: #f95; }
