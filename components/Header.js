@@ -13,7 +13,7 @@ class Header extends Component {
     return (
       <header className="header">
           <h1>todos</h1>
-          <button className="button_add_todo_list" onClick={this.props.addTodoList}>Add list</button>
+          <button className="button button_add_todo_list" onClick={this.props.addTodoList}>Add list</button>
       </header>
     )
   }
