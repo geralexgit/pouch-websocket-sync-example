@@ -14,6 +14,7 @@ class Header extends Component {
     return (
       <header className="header">
           <h1>todos</h1>
+          <button onClick={this.props.addTodoList}>Add list</button>
       </header>
     )
 
@@ -22,7 +23,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  addTodo: PropTypes.func.isRequired
+  addTodoList: PropTypes.func.isRequired
 }
 
 export default Header

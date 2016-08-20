@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div>
 
-      <Header addTodo={actions.addTodo} />
+      <Header addTodoList={actions.addTodoList} />
         <MainSection todoLists={todoLists} todos={todos} actions={actions} />
         <SyncStatus status={syncState} />
       </div>

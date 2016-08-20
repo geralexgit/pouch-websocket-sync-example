@@ -65,7 +65,7 @@ class MainSection extends Component {
     return (
       <section className="main">
         {todoLists.map(todoList =>
-          <TodoList key={todoList._id} todos={todos} todoList={todoList} {...actions} />
+          <TodoList key={todoList._id} todos={todos} todoList={todoList} actions={actions} />
         )}
       </section>
     )

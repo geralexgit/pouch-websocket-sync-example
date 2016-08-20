@@ -23,3 +23,7 @@ export function completeAll() {
 export function clearCompleted() {
   return { type: types.CLEAR_COMPLETED }
 }
+
+export function addTodoList() {
+  return { type: types.ADD_TODO_LIST }
+}

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import TodoItem from './TodoItem'
 import TodoTextInput from './TodoTextInput'
+import Footer from './Footer'
 
 
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
@@ -75,7 +76,7 @@ class TodoList extends Component {
 	    	<TodoTextInput newTodo
 	                         onSave={this.handleSave.bind(this)}
 	                         placeholder="What needs to be done?" />
-	        {this.renderToggleAll(completedCount)}
+
 	        <ul className="todo-list">
 	          {filteredTodos.map(todo =>
 	            <TodoItem key={todo._id} todo={todo} {...actions} />
