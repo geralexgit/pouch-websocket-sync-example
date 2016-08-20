@@ -32,7 +32,6 @@ body .todoapp h1 { font-size: 2rem; }
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-	text-align: center;
 }
 
 .main > div {

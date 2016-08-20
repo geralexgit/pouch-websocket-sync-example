@@ -12,7 +12,7 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-          <h1 className="list_name">Offline TODO Lists</h1>
+          <h1 className="list_name">Offline first Task Tracker</h1>
           <div className="list_add_todo">
             <input className="input" type="text" ref="input" placeholder="TODO LIST NAME?" />
             <button className="button button_add_todo_list"
