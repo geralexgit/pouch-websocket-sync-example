@@ -8,7 +8,8 @@ export default function todoLists(state = initialState, action) {
 		case ADD_TODO_LIST:
 			return [
 				...state,
-				{_id: id()}
+				{_id: id(),
+				listName: action.listName}
 			]
 		case REMOVE_TODO_LIST:			
 			return state.filter(item => item._id !== action.id)
