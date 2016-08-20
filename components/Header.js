@@ -12,17 +12,19 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-          <h1 className="list_name">todos</h1>
-          <input className="input" type="text" ref="input" placeholder="What is TODO list about?" />
-          <button className="button button_add_todo_list"
-                  onClick={ ()=> {
-                                    if(this.refs.input.value!="") {
-                                      this.props.addTodoList(this.refs.input.value)
-                                      this.refs.input.value = "";
-                                    }
-                                  } }>
-            Add list
-          </button>
+          <h1 className="list_name">Offline first Task Tracker</h1>
+          <div className="list_add_todo">
+            <input className="input" type="text" ref="input" placeholder="TODO LIST NAME?" />
+            <button className="button button_add_todo_list"
+                    onClick={ ()=> {
+                                      if(this.refs.input.value!="") {
+                                        this.props.addTodoList(this.refs.input.value)
+                                        this.refs.input.value = "";
+                                      }
+                                    } }>
+              Add list
+            </button>
+          </div>
       </header>
     )
   }

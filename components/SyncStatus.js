@@ -7,7 +7,7 @@ class SyncStatus extends Component {
   render() {
     const { text } = this.props.status
     return (
-      <p style={{padding: "1em"}}>
+      <p className="sync-status" style={{padding: "1em"}}>
         syncStatus: {text}
       </p>
     )
