@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
 import todos from './todos'
+import todoLists from './todoLists'
 import syncState from './syncState'
 
 export default combineReducers({
-  todos, syncState
+  todoLists, syncState, todos
 })

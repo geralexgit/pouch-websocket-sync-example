@@ -1,18 +1,21 @@
 import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Header from '../components/Header'
 import MainSection from '../components/MainSection'
 import SyncStatus from '../components/SyncStatus'
 import * as TodoActions from '../actions/todos'
 
+import Header from '../components/Header'
+
 class App extends Component {
   render() {
-    const { todos, actions, syncState } = this.props
+    const { actions, syncState, todos, todoLists } = this.props
+    // const todoLists = [{_id: 1},{_id: 2}]
     return (
       <div>
-        <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
+
+      <Header addTodo={actions.addTodo} />
+        <MainSection todoLists={todoLists} todos={todos} actions={actions} />
         <SyncStatus status={syncState} />
       </div>
     )
@@ -20,13 +23,14 @@ class App extends Component {
 }
 
 App.propTypes = {
-  todos: PropTypes.array.isRequired,
+  todoLists: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {
   return {
     todos: state.todos,
+    todoLists: state.todoLists,
     syncState: state.syncState,
   }
 }

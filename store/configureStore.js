@@ -9,7 +9,6 @@ const syncEvents = ['change', 'paused', 'active', 'denied', 'complete', 'error']
 const clientEvents = ['connect', 'disconnect', 'reconnect'];
 
 const initialState = {
-  todos: [],
   syncState: {
     text: 'unknown'
   }
