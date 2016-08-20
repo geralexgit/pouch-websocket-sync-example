@@ -64,7 +64,7 @@ class TodoList extends Component {
   }
 
  render() {
-    const { todos, actions } = this.props
+    const { todos, actions, todoList } = this.props
     const { filter } = this.state
     const filteredTodos = todos.filter(TODO_FILTERS[filter])
     const completedCount = todos.reduce((count, todo) =>
@@ -81,6 +81,7 @@ class TodoList extends Component {
 	          {filteredTodos.map(todo =>
 	            <TodoItem key={todo._id} todo={todo} {...actions} />
 	          )}
+            <button className="button_removeTodoList" onClick={() => actions.removeTodoList(todoList._id)}>Remove list</button>
 	        </ul>
 	        {this.renderFooter(completedCount)}
         </div>
