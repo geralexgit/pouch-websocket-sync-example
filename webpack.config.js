@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var AppCachePlugin = require('appcache-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -15,7 +16,11 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new AppCachePlugin({
+      cache: ['/', '/static/manifest.appcache'],
+      output: 'manifest.appcache'
+    })
   ],
   module: {
     loaders: [{
