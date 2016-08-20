@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import classnames from 'classnames'
 
 class TodoTextInput extends Component {
+
   constructor(props, context) {
     super(props, context)
     this.state = {
@@ -45,6 +46,7 @@ class TodoTextInput extends Component {
         onKeyDown={this.handleSubmit.bind(this)} />
     )
   }
+  
 }
 
 TodoTextInput.propTypes = {

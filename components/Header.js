@@ -12,8 +12,9 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-          <h1>todos</h1>
-          <button className="button button_add_todo_list" onClick={this.props.addTodoList}>Add list</button>
+          <h1 className="list_name">todos</h1>
+          <input className="input" type="text" ref="input"/>
+          <button className="button button_add_todo_list" onClick={()=> this.props.addTodoList(this.refs.input.value)}>Add list</button>
       </header>
     )
   }

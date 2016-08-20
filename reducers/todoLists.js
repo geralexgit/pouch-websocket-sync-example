@@ -8,7 +8,8 @@ export default function todoLists(state = initialState, action) {
 		case ADD_TODO_LIST:
 			return [
 				...state,
-				{_id: id()}
+				{_id: id(),
+				listName: action.listName}
 			]
 		case INSERT_TODO_LIST:
 			return [
