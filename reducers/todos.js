@@ -8,6 +8,7 @@ export default function todos(state = initialState, action) {
       return [
         {
           _id: id(),
+          todoListId: action.todoListId,
           completed: false,
           text: action.text
         },

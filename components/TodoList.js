@@ -21,7 +21,7 @@ class TodoList extends Component {
 
   handleSave(text) {
     if (text.length !== 0) {
-      this.props.addTodo(text)
+      this.props.actions.addTodo(text, this.props.todoList._id)
     }
   }
 
@@ -87,6 +87,10 @@ class TodoList extends Component {
         </div>
     )
   }
+}
+
+TodoList.propTypes = {
+  actions: PropTypes.object.isRequired
 }
 
 export default TodoList
