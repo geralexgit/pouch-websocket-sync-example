@@ -20,7 +20,7 @@ export default function configureStore() {
   const syncClient = PouchSync.createClient()
 
   const sync = syncClient.
-    connect('ws://0d703945.ngrok.io:80').
+    connect('ws://b4bf5aea.ngrok.io:80').
     on('error', function(err) {
       console.log(err);
     }).
@@ -40,15 +40,36 @@ export default function configureStore() {
     })
   })
 
-  const pouchMiddleware = PouchMiddleware({
-    path: '/todos',
-    db,
-    actions: {
-      remove: doc => store.dispatch({type: types.DELETE_TODO, id: doc._id}),
-      insert: doc => store.dispatch({type: types.INSERT_TODO, todo: doc}),
-      update: doc => store.dispatch({type: types.UPDATE_TODO, todo: doc}),
+  const isTodoList = (id) => {
+    return id.toString().indexOf('todolist') !== -1
+  }
+
+  const isTodo = (id) => {
+    return id.toString().indexOf('todolist') === -1
+  }
+
+  const pouchMiddleware = PouchMiddleware([{
+      path: '/todos',
+      db,
+      actions: {
+        remove: doc => store.dispatch({type: types.DELETE_TODO, id: doc._id}),
+        insert: doc => store.dispatch({type: types.INSERT_TODO, todo: doc}),
+        update: doc => store.dispatch({type: types.UPDATE_TODO, todo: doc}),
+      },
+      changeFilter: doc => isTodo(doc._id)
+    },
+    {
+      path: '/todoLists',
+      db,
+      actions: {
+        remove: doc => store.dispatch({type: types.REMOVE_TODO_LIST, id: doc._id}),
+        insert: doc => store.dispatch({type: types.INSERT_TODO_LIST, todoList: doc}),
+        update: doc => store.dispatch({type: types.UPDATE_TODO_LIST, todoList: doc})
+      },
+      changeFilter: doc => isTodoList(doc._id)      
     }
-  })
+  ]);
+
   const createStoreWithMiddleware = applyMiddleware(pouchMiddleware)(createStore)
   const store = createStoreWithMiddleware(rootReducer, initialState)
 

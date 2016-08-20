@@ -73,6 +73,7 @@ class TodoList extends Component {
     )
     return (
     	<div>
+        <h2 className="list_name">{todoList.listName}</h2>
 	    	<TodoTextInput newTodo
 	                         onSave={this.handleSave.bind(this)}
 	                         placeholder="What needs to be done?" />
