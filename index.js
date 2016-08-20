@@ -6,6 +6,7 @@ import App from './containers/App'
 import configureStore from './store/configureStore'
 import 'todomvc-app-css/index.css'
 import PouchDB from 'pouchdb'
+import './style.css'
 
 const store = configureStore()
 
