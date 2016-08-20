@@ -3,11 +3,12 @@ html, body, body * { box-sizing: border-box; }
 html { font-size: 15px; }
 body {
   font: 1rem/1.618 sans-serif;
-  background: #fafafa;
+  background: #efefef;
 }
 
 .todoapp {
   max-width: 95%;
+	margin: 0 auto;
 }
 
 .todoapp input::placeholder {
@@ -22,24 +23,28 @@ body {
 body .todoapp h1 { font-size: 2rem; }
 
 .header {
-  display: flex;
-  align-items: left;
-  flex-wrap: wrap;
+	text-align: center;
 }
 
 .main {
-  display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
+	text-align: center;
 }
 
 .main > div {
-  width: 250px; position: relative;
-  margin: 1rem auto; padding: 0 1rem 3rem;
-  color: #000; background-color: rgb(255, 255, 141);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+  width: 23%; position: relative;
+  margin: 1rem auto; padding: 0 1rem 1.6rem;
+  color: #000; 
+	background-color: #fff;
+  box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	margin: 1%;
+	min-width: 300px;
 }
 
 .new-todo,
@@ -57,7 +62,10 @@ input {
 }
 
 .list_name {
-  padding-left: 2em;
+		margin-top: 0.5em;
+    font-weight: normal;
+    font-size: 2em;
+    margin-bottom: 0.1em;
 }
 
 .todo-count { display: none; }
@@ -74,9 +82,14 @@ input {
 }
 
 .button_remove_todo_list {
-  background-color: #d9534f;
-  position: absolute;
-  top: 0.5rem; right: 0.5rem;
+    position: absolute;
+    top: 0.1rem;
+    right: 0.5rem;
+    background: none;
+    color: #7B7B7B;
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
 }
 
 /* -- */
@@ -147,7 +160,8 @@ input {
 	text-align: center;
 	width: 40px;
 	/* auto, since non-WebKit browsers doesn't support input styling */
-	height: auto;
+	height: 40px;
+	padding: 0;
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -155,14 +169,15 @@ input {
 	border: none; /* Mobile Safari */
 	-webkit-appearance: none;
 	appearance: none;
+	background: none;
 }
 
 .todo-list li .toggle:after {
-	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
+	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#666" stroke-width="3"/></svg>');
 }
 
 .todo-list li .toggle:checked:after {
-	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#777" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
 }
 
 .todo-list li label {
@@ -183,7 +198,7 @@ input {
 	display: none;
 	position: absolute;
 	top: 0;
-	right: 10px;
+	right: 0;
 	bottom: 0;
 	width: 40px;
 	height: 40px;
@@ -192,6 +207,7 @@ input {
 	color: #cc9a9a;
 	margin-bottom: 11px;
 	transition: color 0.2s ease-out;
+	background: none;
 }
 
 .todo-list li .destroy:hover {
@@ -220,4 +236,13 @@ input {
 	height: 20px;
 	text-align: center;
 	border-top: 1px solid #e6e6e6;
+}
+
+.list_add_todo {
+	display: inline-block;
+}
+
+.sync-status {
+	text-align: center;
+	color: #aaa;
 }
