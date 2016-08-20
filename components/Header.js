@@ -13,11 +13,20 @@ class Header extends Component {
     return (
       <header className="header">
           <h1 className="list_name">todos</h1>
-          <input className="input" type="text" ref="input"/>
-          <button className="button button_add_todo_list" onClick={()=> this.props.addTodoList(this.refs.input.value)}>Add list</button>
+          <input className="input" type="text" ref="input" placeholder="What is TODO list about?" />
+          <button className="button button_add_todo_list"
+                  onClick={ ()=> {
+                                    if(this.refs.input.value!="") {
+                                      this.props.addTodoList(this.refs.input.value)
+                                      this.refs.input.value = "";
+                                    }
+                                  } }>
+            Add list
+          </button>
       </header>
     )
   }
+  
 }
 
 Header.propTypes = {
