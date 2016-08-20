@@ -3,7 +3,7 @@ import PouchMiddleware from 'pouch-redux-middleware'
 import { createStore, applyMiddleware } from 'redux'
 import rootReducer from '../reducers'
 import PouchDB from 'pouchdb'
-import PouchSync from 'pouch-websocket-sync'
+PouchDB.adapter('socket', require('socket-pouch/client'));
 
 const syncEvents = ['change', 'paused', 'active', 'denied', 'complete', 'error'];
 const clientEvents = ['connect', 'disconnect', 'reconnect'];
@@ -14,19 +14,16 @@ const initialState = {
   }
 }
 
-export default function configureStore() {
-  const db = new PouchDB('todos');
+export default function configureStore(dbName) {
+  const db = new PouchDB(dbName, {auto_compaction: true});
 
-  const syncClient = PouchSync.createClient()
+  var remoteDB = new PouchDB({
+    name: dbName,
+    adapter: 'socket',
+    url: 'ws://localhost:8080'
+  });
 
-  const sync = syncClient.
-    connect('ws://0.tcp.ngrok.io:14075').
-    on('error', function(err) {
-      console.log(err);
-    }).
-    sync(db, {
-      remoteName: 'todos-server',
-    })
+  const sync = db.sync(remoteDB)
 
   syncEvents.forEach(function(event) {
     sync.on(event, function() {
@@ -35,7 +32,7 @@ export default function configureStore() {
   })
 
   clientEvents.forEach(function(event) {
-    syncClient.on(event, function() {
+    sync.on(event, function() {
       store.dispatch({type: types.SET_SYNC_STATE, text: event});
     })
   })

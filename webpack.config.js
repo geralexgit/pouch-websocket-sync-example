@@ -1,6 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
-var AppCachePlugin = require('appcache-webpack-plugin');
+var AppCachePlugin = require('appcache-webpack-plugin')
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',

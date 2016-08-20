@@ -8,7 +8,7 @@ import 'todomvc-app-css/index.css'
 import PouchDB from 'pouchdb'
 import './style.css'
 
-const store = configureStore()
+const store = configureStore("companya") //todo: name should be set somewhere else
 
 render(
   <Provider store={store}>
