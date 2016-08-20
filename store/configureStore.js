@@ -20,7 +20,7 @@ export default function configureStore() {
   const syncClient = PouchSync.createClient()
 
   const sync = syncClient.
-    connect('ws://localhost:3001').
+    connect('ws://0d703945.ngrok.io:80').
     on('error', function(err) {
       console.log(err);
     }).
